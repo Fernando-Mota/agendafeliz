@@ -13,12 +13,12 @@ public interface DashBoardContract {
 
         void abrirListaContato();
 
-        void abrirListaenderecos();
+        void abrirListaEnderecos();
     }
 
     public interface View extends BaseView<Presenter> {
         void abrirListaContato();
 
-        void abrirListaenderecos();
+        void abrirListaEnderecos();
     }
 }

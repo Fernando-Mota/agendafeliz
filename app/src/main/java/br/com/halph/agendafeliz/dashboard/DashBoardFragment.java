@@ -9,11 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import br.com.halph.agendafeliz.dashboard.DashBoardContract;
+import br.com.halph.agendafeliz.dashboard.DashBoardPresenter;
+
 /**
  * Created by Android on 16/02/2017.
  */
 
-public class DashBoardFragment extends Fragment {
+public class DashBoardFragment extends Fragment implements DashBoardContract.View {
+
+    DashBoardPresenter presenter;
 
     @Override
     public void onAttach(Context context) {
@@ -27,4 +32,18 @@ public class DashBoardFragment extends Fragment {
         return inflater.inflate(R.layout.dash_board_fragment, container, false);
     }
 
+    @Override
+    public void abrirListaContato() {
+
+    }
+
+    @Override
+    public void abrirListaEnderecos() {
+
+    }
+
+    @Override
+    public void setPresenter(DashBoardContract.Presenter presenter) {
+        this.presenter = (DashBoardPresenter) presenter;
+    }
 }
