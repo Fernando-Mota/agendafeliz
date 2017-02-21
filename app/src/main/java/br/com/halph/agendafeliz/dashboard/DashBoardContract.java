@@ -1,5 +1,7 @@
 package br.com.halph.agendafeliz.dashboard;
 
+import android.view.View;
+
 import br.com.halph.agendafeliz.BasePresenter;
 import br.com.halph.agendafeliz.BaseView;
 
@@ -17,7 +19,7 @@ public interface DashBoardContract {
     }
 
     public interface View extends BaseView<Presenter> {
-        void abrirListaContato();
+        void abrirListaContato(android.view.View view);
 
         void abrirListaEnderecos();
     }
