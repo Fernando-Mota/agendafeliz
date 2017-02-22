@@ -3,7 +3,7 @@ package br.com.halph.agendafeliz.dashboard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import br.com.halph.agendafeliz.DashBoardFragment;
+import br.com.halph.agendafeliz.dashboard.DashBoardFragment;
 import br.com.halph.agendafeliz.R;
 
 public class DashBoardActivity extends AppCompatActivity {
