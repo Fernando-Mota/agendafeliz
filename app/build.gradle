@@ -26,11 +26,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.1.1'
     compile 'com.android.support:recyclerview-v7:25.1.1'
-<<<<<<< HEAD
     compile "com.android.support:design:25.2.0"
-=======
-    compile "com.android.support:design:25.1.1"
->>>>>>> 39ee4af751a4e684c52d5633b80013e26457c60b
     compile 'io.realm:android-adapters:1.4.0'
     compile 'com.android.support:support-v4:25.2.0'
     testCompile 'junit:junit:4.12'
