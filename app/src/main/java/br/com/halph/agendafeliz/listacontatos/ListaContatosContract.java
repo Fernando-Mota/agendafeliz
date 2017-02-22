@@ -22,6 +22,6 @@ public interface ListaContatosContract {
 
         public void adicionaContatoClick();
 
-        public void alteraContatoClick();
+        public void alteraContatoClick(Contato contato);
     }
 }
