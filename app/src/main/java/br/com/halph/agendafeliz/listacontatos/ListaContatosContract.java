@@ -16,6 +16,8 @@ public interface ListaContatosContract {
 
         public List<Contato> listaContatos();
 
+        public List<Contato> listaContatoOnline();
+
     }
 
     public interface View extends BaseView<Presenter> {
