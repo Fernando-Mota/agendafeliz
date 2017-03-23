@@ -3,23 +3,22 @@ package br.com.halph.agendafeliz.contatos.data;
 import java.util.List;
 
 import br.com.halph.agendafeliz.enderecos.data.Endereco;
+import br.com.halph.agendafeliz.repositories.BaseEntity;
+import br.com.halph.agendafeliz.repositories.enums.SyncType;
 import br.com.halph.agendafeliz.telefones.data.Telefone;
+import io.realm.RealmObject;
 
 /**
  * Created by Android on 20/02/2017.
  */
 
-public class Contato {
+public class Contato extends RealmObject {
 
     private String id;
 
     private String nome;
 
     private String sexo;
-
-    private List<Telefone> telefones;
-
-    private List<Endereco> enderecos;
 
     public String getId() {
         return id;
@@ -43,21 +42,5 @@ public class Contato {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
-    }
-
-    public List<Telefone> getTelefones() {
-        return telefones;
-    }
-
-    public void setTelefones(List<Telefone> telefones) {
-        this.telefones = telefones;
-    }
-
-    public List<Endereco> getEnderecos() {
-        return enderecos;
-    }
-
-    public void setEnderecos(List<Endereco> enderecos) {
-        this.enderecos = enderecos;
     }
 }

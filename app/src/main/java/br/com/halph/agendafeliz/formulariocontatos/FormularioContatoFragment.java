@@ -34,7 +34,6 @@ public class FormularioContatoFragment extends Fragment implements FormularioCon
 
     }
 
-    @Override
     public void setPresenter(FormularioContatoContract.Presenter presenter) {
         this.presenter = presenter;
     }

@@ -2,8 +2,8 @@ package br.com.halph.agendafeliz.listacontatos;
 
 import java.util.List;
 
-import br.com.halph.agendafeliz.BasePresenter;
-import br.com.halph.agendafeliz.BaseView;
+import br.com.halph.agendafeliz.infra.BasePresenter;
+import br.com.halph.agendafeliz.infra.BaseView;
 import br.com.halph.agendafeliz.contatos.data.Contato;
 
 /**
@@ -14,9 +14,7 @@ public interface ListaContatosContract {
 
     public interface Presenter extends BasePresenter {
 
-        public List<Contato> listaContatos();
-
-        public List<Contato> listaContatoOnline();
+        public List<Contato> lista();
 
     }
 
@@ -24,6 +22,7 @@ public interface ListaContatosContract {
 
         public void adicionaContatoClick();
 
-        public void alteraContatoClick(Contato contato);
+        public void contatoVisualizaClick();
+
     }
 }

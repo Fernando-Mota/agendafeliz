@@ -2,11 +2,18 @@ package br.com.halph.agendafeliz.repositories;
 
 import java.util.List;
 
+import io.realm.Realm;
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 /**
  * Created by Android on 20/02/2017.
  */
 
 public interface Repository<T, ID> {
+
+    public static final Realm realm = Realm.getDefaultInstance();
 
     public void add(T t);
 
@@ -14,7 +21,7 @@ public interface Repository<T, ID> {
 
     public T findById(ID id);
 
-    public void delete(ID id);
+    public void delete(T t);
 
-    public List<T> list();
+    public List<T> findAll(Class<T> typeClass);
 }

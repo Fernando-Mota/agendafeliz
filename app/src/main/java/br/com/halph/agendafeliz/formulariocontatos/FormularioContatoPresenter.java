@@ -17,7 +17,6 @@ public class FormularioContatoPresenter implements FormularioContatoContract.Pre
             contatoRepository.add(contato);
         }
         else {
-            contatoRepository.update(contato);
         }
     }
 
@@ -28,6 +27,5 @@ public class FormularioContatoPresenter implements FormularioContatoContract.Pre
 
     @Override
     public void start() {
-        contatoRepository = new ContatoRepository();
     }
 }

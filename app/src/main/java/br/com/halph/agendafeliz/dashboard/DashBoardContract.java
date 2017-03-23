@@ -1,9 +1,7 @@
 package br.com.halph.agendafeliz.dashboard;
 
-import android.view.View;
-
-import br.com.halph.agendafeliz.BasePresenter;
-import br.com.halph.agendafeliz.BaseView;
+import br.com.halph.agendafeliz.infra.BasePresenter;
+import br.com.halph.agendafeliz.infra.BaseView;
 
 /**
  * Created by Android on 16/02/2017.

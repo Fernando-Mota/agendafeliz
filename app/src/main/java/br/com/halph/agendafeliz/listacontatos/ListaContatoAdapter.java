@@ -17,4 +17,9 @@ public class ListaContatoAdapter {
 
 
     }
+
+
+    public class ListaContatoViewHolder {
+
+    }
 }

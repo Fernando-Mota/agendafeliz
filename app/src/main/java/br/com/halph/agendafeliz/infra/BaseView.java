@@ -1,4 +1,4 @@
-package br.com.halph.agendafeliz;
+package br.com.halph.agendafeliz.infra;
 
 /**
  * Created by Android on 16/02/2017.
@@ -6,5 +6,4 @@ package br.com.halph.agendafeliz;
 
 public interface BaseView<T> {
 
-    public void setPresenter(T presenter);
 }

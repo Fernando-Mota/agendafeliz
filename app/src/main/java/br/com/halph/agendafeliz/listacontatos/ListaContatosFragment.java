@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import javax.inject.Inject;
+
 import br.com.halph.agendafeliz.R;
 import br.com.halph.agendafeliz.contatos.data.Contato;
 import br.com.halph.agendafeliz.formulariocontatos.FormularioContatoFragment;
@@ -20,7 +22,8 @@ import br.com.halph.agendafeliz.formulariocontatos.FormularioContatoFragment;
 
 public class ListaContatosFragment extends Fragment implements ListaContatosContract.View {
 
-    private ListaContatosContract.Presenter presenter;
+    @Inject
+    ListaContatosPresenter listaContatosPresenter;
 
     private Context context;
 
@@ -58,28 +61,15 @@ public class ListaContatosFragment extends Fragment implements ListaContatosCont
 
     @Override
     public void adicionaContatoClick() {
-
-        // Create new fragment and transaction
         Fragment newFragment = new FormularioContatoFragment();
-        // consider using Java coding conventions (upper first char class names!!!)
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack
-        transaction.replace(R.id.dash_board_container, newFragment);
+        transaction.replace(R.id.container, newFragment);
         transaction.addToBackStack(null);
-
-        // Commit the transaction
         transaction.commit();
     }
 
     @Override
-    public void alteraContatoClick(Contato contato) {
-
-    }
-
-    @Override
-    public void setPresenter(ListaContatosContract.Presenter presenter) {
-        this.presenter = presenter;
+    public void contatoVisualizaClick() {
+        //Deve fazer o handle do click na linha do recyclerview para abrir a tela de visualização
     }
 }

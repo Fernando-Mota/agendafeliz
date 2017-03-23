@@ -1,11 +1,8 @@
 package br.com.halph.agendafeliz.formulariocontatos;
 
-import java.util.List;
-
-import br.com.halph.agendafeliz.BasePresenter;
-import br.com.halph.agendafeliz.BaseView;
+import br.com.halph.agendafeliz.infra.BasePresenter;
+import br.com.halph.agendafeliz.infra.BaseView;
 import br.com.halph.agendafeliz.contatos.data.Contato;
-import br.com.halph.agendafeliz.enderecos.data.Endereco;
 
 /**
  * Created by Android on 20/02/2017.

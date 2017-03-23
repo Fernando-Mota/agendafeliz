@@ -5,10 +5,12 @@ import android.os.AsyncTask;
 import java.io.IOException;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import br.com.halph.agendafeliz.contatos.data.Contato;
+import br.com.halph.agendafeliz.contatos.data.ContatoLocalRepository;
+import br.com.halph.agendafeliz.contatos.data.ContatoRemoteService;
 import br.com.halph.agendafeliz.contatos.data.ContatoRepository;
-import br.com.halph.agendafeliz.contatos.data.ContatoService;
-import retrofit2.Retrofit;
 
 /**
  * Created by Android on 20/02/2017.
@@ -16,39 +18,19 @@ import retrofit2.Retrofit;
 
 public class ListaContatosPresenter implements ListaContatosContract.Presenter {
 
-    private ContatoRepository contatoRepository;
+    ContatoRepository contatoRepository;
 
-    private ContatoService contatoService = ContatoService.retrofit.create(ContatoService.class);
-
-    AsyncTask<Void, Void, List<Contato>> contatoTask = new AsyncTask<Void, Void, List<Contato>>() {
-        @Override
-        protected List<Contato> doInBackground(Void... params) {
-            return listaContatoOnline();
-        }
-
-        @Override
-        protected void onPostExecute(List<Contato> contatos) {
-            
-        }
-    };
-
-    @Override
-    public List<Contato> listaContatos() {
-        return contatoRepository.list();
-    }
-
-    @Override
-    public List<Contato> listaContatoOnline() {
-        try {
-            return contatoService.contatos().execute().body();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+    @Inject
+    public ListaContatosPresenter(ContatoRepository contatoRepository) {
+        this.contatoRepository = contatoRepository;
     }
 
     @Override
     public void start() {
-        this.contatoRepository = new ContatoRepository();
+    }
+
+    @Override
+    public List<Contato> lista() {
+        return contatoRepository.listaContatos();
     }
 }

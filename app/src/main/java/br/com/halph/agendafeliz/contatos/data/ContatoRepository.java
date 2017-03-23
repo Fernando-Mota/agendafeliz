@@ -1,48 +1,34 @@
 package br.com.halph.agendafeliz.contatos.data;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
-
-import java.util.Arrays;
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
- * Created by Android on 20/02/2017.
+ * Created by fernando on 22/03/17.
  */
 
-public class ContatoRepository implements ContatoDataSource<Contato, String> {
+public class ContatoRepository implements ContatoDataSource {
 
-    @SuppressLint("LongLogTag")
+    private ContatoLocalRepository contatoLocalRepository;
+
+    @Inject
+    public ContatoRepository(ContatoLocalRepository contatoLocalRepository) {
+        this.contatoLocalRepository = contatoLocalRepository;
+    }
+
     @Override
-    public void deleteAllContatos() {
-        Log.v("Apagando todos os contatos", "Contatos apagados com sucesso!");
+    public List<Contato> listaContatos() {
+        return contatoLocalRepository.findAll(Contato.class);
     }
 
     @Override
     public void add(Contato contato) {
-        Log.v("Incluido contato", "Contato: " + contato.getNome() + " incluso");
-    }
-
-    @Override
-    public void update(Contato contato) {
-        Log.v("Alterando contato", "Contato: " + contato.getNome() + " alterado");
-    }
-
-    @Override
-    public List<Contato> list() {
-        return Arrays.asList(new Contato(), new Contato(), new Contato());
-    }
-
-    @Override
-    public void delete(String id) {
-        Contato contato = findById(id);
-        Log.v("Deletando contato", "Contato: " + contato.getNome() + " alterado");
+        contatoLocalRepository.add(contato);
     }
 
     @Override
     public Contato findById(String id) {
-        Contato contato = new Contato();
-        Log.v("Alterando contato", "Contato: " + contato.getNome() + " alterado");
-        return contato;
+        return contatoLocalRepository.findById(id);
     }
 }

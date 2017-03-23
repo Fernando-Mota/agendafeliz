@@ -18,7 +18,7 @@ import retrofit2.http.Path;
  * Created by Android on 09/03/2017.
  */
 
-public interface ContatoService {
+public interface ContatoRemoteService {
 
     @GET("contatos")
     public Call<List<Contato>> contatos();

@@ -1,13 +1,17 @@
 package br.com.halph.agendafeliz.contatos.data;
 
-import br.com.halph.agendafeliz.repositories.Repository;
+import java.util.List;
 
 /**
- * Created by Android on 20/02/2017.
+ * Created by fernando on 22/03/17.
  */
 
-public interface ContatoDataSource<Contato, String> extends Repository<Contato, String> {
+public interface ContatoDataSource {
 
-    public void deleteAllContatos();
+    public List<Contato> listaContatos();
+
+    public void add(Contato contato);
+
+    public Contato findById(String id);
 
 }
