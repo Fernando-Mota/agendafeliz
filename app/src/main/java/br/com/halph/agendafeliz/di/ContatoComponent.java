@@ -1,6 +1,8 @@
 package br.com.halph.agendafeliz.di;
 
 import br.com.halph.agendafeliz.contatos.data.ContatoLocalRepository;
+import br.com.halph.agendafeliz.contatos.data.ContatoRepository;
+import br.com.halph.agendafeliz.listacontatos.ListaContatosFragment;
 import br.com.halph.agendafeliz.listacontatos.ListaContatosPresenter;
 import dagger.Component;
 
@@ -13,6 +15,10 @@ public interface ContatoComponent {
 
     public ContatoLocalRepository getContatoLocalRepository();
 
+    public ContatoRepository getContatoRepository();
+
     public ListaContatosPresenter getListaContatoPresenter();
+
+    void inject(ListaContatosFragment listaContatosFragment);
 
 }

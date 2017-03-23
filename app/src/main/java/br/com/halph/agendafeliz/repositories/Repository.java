@@ -13,8 +13,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public interface Repository<T, ID> {
 
-    public static final Realm realm = Realm.getDefaultInstance();
-
     public void add(T t);
 
     public void update(T t);

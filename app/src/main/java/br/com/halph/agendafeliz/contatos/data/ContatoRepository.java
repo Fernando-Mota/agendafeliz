@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.realm.Realm;
+
 /**
  * Created by fernando on 22/03/17.
  */
@@ -30,5 +32,9 @@ public class ContatoRepository implements ContatoDataSource {
     @Override
     public Contato findById(String id) {
         return contatoLocalRepository.findById(id);
+    }
+
+    public void initializer(Realm realm) {
+        contatoLocalRepository.initializer(realm);
     }
 }

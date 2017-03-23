@@ -4,12 +4,15 @@ import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmObject;
+import io.realm.internal.Context;
 
 /**
  * Created by fernando on 17/03/17.
  */
 
 public abstract class AbstractRepository<T extends RealmObject, ID> implements Repository<T, ID> {
+
+    public Realm realm;
 
     @Override
     public void add(T t) {
@@ -41,6 +44,8 @@ public abstract class AbstractRepository<T extends RealmObject, ID> implements R
     public T findById(ID id) {
         return null;
     }
+
+    public abstract void initializer(Realm realm);
 
 
 }
