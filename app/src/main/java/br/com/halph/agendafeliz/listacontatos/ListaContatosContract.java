@@ -17,7 +17,7 @@ public interface ListaContatosContract {
 
         public List<Contato> lista();
 
-        public void initializer(Realm realm);
+        public void closeRepository();
 
     }
 

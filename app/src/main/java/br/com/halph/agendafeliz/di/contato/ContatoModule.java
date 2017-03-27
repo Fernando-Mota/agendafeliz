@@ -1,13 +1,13 @@
-package br.com.halph.agendafeliz.di;
+package br.com.halph.agendafeliz.di.contato;
 
 import br.com.halph.agendafeliz.contatos.data.Contato;
 import br.com.halph.agendafeliz.contatos.data.ContatoLocalRepository;
 import br.com.halph.agendafeliz.contatos.data.ContatoRepository;
 import br.com.halph.agendafeliz.listacontatos.ListaContatosContract;
 import br.com.halph.agendafeliz.listacontatos.ListaContatosPresenter;
-import br.com.halph.agendafeliz.repositories.AbstractRepository;
 import dagger.Module;
 import dagger.Provides;
+import io.realm.Realm;
 
 /**
  * Created by fernando on 22/03/17.
@@ -17,8 +17,8 @@ import dagger.Provides;
 public class ContatoModule {
 
     @Provides
-    public ContatoLocalRepository providesContatoLocalRepository() {
-        return new ContatoLocalRepository();
+    public ContatoLocalRepository providesContatoLocalRepository(Realm realm) {
+        return new ContatoLocalRepository(realm);
     }
 
     @Provides

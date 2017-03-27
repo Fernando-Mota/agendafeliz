@@ -36,7 +36,7 @@ public class ListaContatosPresenter implements ListaContatosContract.Presenter {
     }
 
     @Override
-    public void initializer(Realm realm) {
-        contatoRepository.initializer(realm);
+    public void closeRepository() {
+        contatoRepository.closeLocalRepository();
     }
 }

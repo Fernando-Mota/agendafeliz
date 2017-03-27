@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.UUID;
@@ -86,9 +87,6 @@ public class ListaContatosFragment extends Fragment implements ListaContatosCont
     public void onResume() {
         super.onResume();
 
-        Realm.init(getActivity().getApplicationContext());
-        listaContatosPresenter.initializer(Realm.getDefaultInstance());
-
         List<Contato> contatos = listaContatosPresenter.lista();
         Log.d("TESTE_ID", "onAttach: Quantidade de contatos " + contatos.size());
 
@@ -97,9 +95,14 @@ public class ListaContatosFragment extends Fragment implements ListaContatosCont
         contato.setNome("Fernando");
         contato.setSexo("Todo dia");
 
-        //listaContatosPresenter.contatoRepository.add(contato);
-
         contatos = listaContatosPresenter.lista();
         Log.d("TESTE_ID", "onAttach: Quantidade de contatos " + contatos.size());
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listaContatosPresenter.closeRepository();
+        Log.d("CLOSE_REALM", "Realm fechado!");
     }
 }

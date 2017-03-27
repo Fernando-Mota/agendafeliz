@@ -11,6 +11,11 @@ import io.realm.internal.Context;
  */
 
 public class ContatoLocalRepository extends AbstractRepository<Contato, String> {
+
+    public ContatoLocalRepository(Realm realm) {
+        this.realm = realm;
+    }
+
     @Override
     public void add(Contato contato) {
         super.add(contato);
@@ -29,11 +34,6 @@ public class ContatoLocalRepository extends AbstractRepository<Contato, String> 
     @Override
     public Contato findById(String id) {
         return super.findById(id);
-    }
-
-    @Override
-    public void initializer(Realm realm) {
-        this.realm = realm;
     }
 
     @Override

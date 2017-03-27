@@ -45,7 +45,7 @@ public abstract class AbstractRepository<T extends RealmObject, ID> implements R
         return null;
     }
 
-    public abstract void initializer(Realm realm);
-
-
+    public void close() {
+        realm.close();
+    }
 }

@@ -34,7 +34,8 @@ public class ContatoRepository implements ContatoDataSource {
         return contatoLocalRepository.findById(id);
     }
 
-    public void initializer(Realm realm) {
-        contatoLocalRepository.initializer(realm);
+    @Override
+    public void closeLocalRepository() {
+        contatoLocalRepository.close();
     }
 }

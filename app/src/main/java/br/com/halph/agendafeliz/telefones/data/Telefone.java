@@ -1,11 +1,15 @@
 package br.com.halph.agendafeliz.telefones.data;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by Android on 20/02/2017.
  */
 
-public class Telefone {
+public class Telefone extends RealmObject {
 
+    @PrimaryKey
     private String id;
 
     private String numero;

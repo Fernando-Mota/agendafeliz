@@ -6,7 +6,9 @@ import br.com.halph.agendafeliz.enderecos.data.Endereco;
 import br.com.halph.agendafeliz.repositories.BaseEntity;
 import br.com.halph.agendafeliz.repositories.enums.SyncType;
 import br.com.halph.agendafeliz.telefones.data.Telefone;
+import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by Android on 20/02/2017.
@@ -14,11 +16,14 @@ import io.realm.RealmObject;
 
 public class Contato extends RealmObject {
 
+    @PrimaryKey
     private String id;
 
     private String nome;
 
     private String sexo;
+
+    private RealmList<Telefone> telefones;
 
     public String getId() {
         return id;
@@ -42,5 +47,13 @@ public class Contato extends RealmObject {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    public RealmList<Telefone> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(RealmList<Telefone> telefones) {
+        this.telefones = telefones;
     }
 }

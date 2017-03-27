@@ -14,4 +14,6 @@ public interface ContatoDataSource {
 
     public Contato findById(String id);
 
+    public void closeLocalRepository();
+
 }

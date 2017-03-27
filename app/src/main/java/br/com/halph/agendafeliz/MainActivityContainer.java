@@ -5,8 +5,8 @@ import android.os.Bundle;
 
 import br.com.halph.agendafeliz.dashboard.DashBoardFragment;
 import br.com.halph.agendafeliz.R;
-import br.com.halph.agendafeliz.di.ContatoComponent;
-import br.com.halph.agendafeliz.di.DaggerContatoComponent;
+import br.com.halph.agendafeliz.di.contato.ContatoComponent;
+import br.com.halph.agendafeliz.di.contato.DaggerContatoComponent;
 
 public class MainActivityContainer extends AppCompatActivity {
 
@@ -17,7 +17,7 @@ public class MainActivityContainer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
 
-        contatoComponent = DaggerContatoComponent.builder().build();
+        contatoComponent = DaggerContatoComponent.builder().realmComponent(AgendaFelizApplication.getRealmComponent()).build();
 
         if(getSupportFragmentManager().findFragmentByTag("dash_board") == null)
             getSupportFragmentManager()
