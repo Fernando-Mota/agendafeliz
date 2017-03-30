@@ -16,7 +16,7 @@ public class Telefone extends RealmObject {
 
     private String codigoArea;
 
-    private TipoTelefone tipo;
+    private String tipo;
 
     public String getId() {
         return id;
@@ -42,11 +42,11 @@ public class Telefone extends RealmObject {
         this.codigoArea = codigoArea;
     }
 
-    public TipoTelefone getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoTelefone tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 }

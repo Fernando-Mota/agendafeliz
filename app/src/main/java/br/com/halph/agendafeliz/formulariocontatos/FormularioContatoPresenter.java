@@ -1,5 +1,9 @@
 package br.com.halph.agendafeliz.formulariocontatos;
 
+import java.util.UUID;
+
+import javax.inject.Inject;
+
 import br.com.halph.agendafeliz.contatos.data.Contato;
 import br.com.halph.agendafeliz.contatos.data.ContatoRepository;
 
@@ -11,12 +15,19 @@ public class FormularioContatoPresenter implements FormularioContatoContract.Pre
 
     private ContatoRepository contatoRepository;
 
+    @Inject
+    public FormularioContatoPresenter(ContatoRepository contatoRepository) {
+        this.contatoRepository = contatoRepository;
+    }
+
     @Override
     public void gravaContato(Contato contato) {
-        if (contato.getId() != null) {
+        if (contato.getId() == null || contato.getId().isEmpty()) {
+            contato.setId(UUID.randomUUID().toString());
             contatoRepository.add(contato);
         }
         else {
+            contatoRepository.update(contato);
         }
     }
 

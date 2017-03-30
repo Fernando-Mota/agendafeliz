@@ -3,6 +3,8 @@ package br.com.halph.agendafeliz.di.contato;
 import br.com.halph.agendafeliz.contatos.data.ContatoLocalRepository;
 import br.com.halph.agendafeliz.contatos.data.ContatoRepository;
 import br.com.halph.agendafeliz.di.realm.RealmComponent;
+import br.com.halph.agendafeliz.formulariocontatos.FormularioContatoFragment;
+import br.com.halph.agendafeliz.formulariocontatos.FormularioContatoPresenter;
 import br.com.halph.agendafeliz.listacontatos.ListaContatosFragment;
 import br.com.halph.agendafeliz.listacontatos.ListaContatosPresenter;
 import dagger.Component;
@@ -20,6 +22,10 @@ public interface ContatoComponent {
 
     public ListaContatosPresenter getListaContatoPresenter();
 
+    public FormularioContatoPresenter getFormContatoPresenter();
+
     void inject(ListaContatosFragment listaContatosFragment);
+
+    void inject(FormularioContatoFragment formularioContatoFragment);
 
 }

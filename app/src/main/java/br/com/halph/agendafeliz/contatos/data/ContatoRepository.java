@@ -38,4 +38,13 @@ public class ContatoRepository implements ContatoDataSource {
     public void closeLocalRepository() {
         contatoLocalRepository.close();
     }
+
+    @Override
+    public void update(Contato contato) {
+        contatoLocalRepository.update(contato);
+    }
+
+    public void cleanDB() {
+        Realm.deleteRealm(contatoLocalRepository.realm.getConfiguration());
+    }
 }

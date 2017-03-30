@@ -14,12 +14,13 @@ public interface FormularioContatoContract {
 
         public void gravaContatoClick();
 
+        public void retornaParaLista();
+
     }
 
     public interface Presenter extends BasePresenter {
 
         public void gravaContato(Contato contato);
-
 
         public Contato lecontatoPeloId(String id);
 

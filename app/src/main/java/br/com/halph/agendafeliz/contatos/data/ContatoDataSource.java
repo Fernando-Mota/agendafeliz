@@ -16,4 +16,6 @@ public interface ContatoDataSource {
 
     public void closeLocalRepository();
 
+    public void update(Contato contato);
+
 }

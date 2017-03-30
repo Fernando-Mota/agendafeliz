@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +39,8 @@ public class ListaContatosFragment extends Fragment implements ListaContatosCont
 
     private FloatingActionButton botaoAdicionaContato;
 
+    private RecyclerView recyclerView;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,6 +48,15 @@ public class ListaContatosFragment extends Fragment implements ListaContatosCont
 
         View view = inflater.inflate(R.layout.lista_contato_fragment, container, false);
 
+        recyclerView = (RecyclerView) view.findViewById(R.id.lista_contatos_recycler_view);
+
+        List<Contato> contatos = listaContatosPresenter.lista();
+
+        Log.d("QUANTIDADE_CONTATOS", "onCreateView: Contatos count " + contatos.size());
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
+        recyclerView.setAdapter(new ListaContatoAdapter(contatos));
 
         botaoAdicionaContato = (FloatingActionButton) view.findViewById(R.id.adiciona_contatos);
 
@@ -86,17 +99,6 @@ public class ListaContatosFragment extends Fragment implements ListaContatosCont
     @Override
     public void onResume() {
         super.onResume();
-
-        List<Contato> contatos = listaContatosPresenter.lista();
-        Log.d("TESTE_ID", "onAttach: Quantidade de contatos " + contatos.size());
-
-        Contato contato = new Contato();
-        contato.setId(UUID.randomUUID().toString());
-        contato.setNome("Fernando");
-        contato.setSexo("Todo dia");
-
-        contatos = listaContatosPresenter.lista();
-        Log.d("TESTE_ID", "onAttach: Quantidade de contatos " + contatos.size());
     }
 
     @Override

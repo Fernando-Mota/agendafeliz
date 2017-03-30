@@ -19,6 +19,10 @@ public interface ListaContatosContract {
 
         public void closeRepository();
 
+        public void addContato(Contato contato);
+
+        public void cleanDB();
+
     }
 
     public interface View extends BaseView<Presenter> {

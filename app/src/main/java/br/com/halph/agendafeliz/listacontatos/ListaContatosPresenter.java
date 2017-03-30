@@ -19,7 +19,7 @@ import io.realm.Realm;
 
 public class ListaContatosPresenter implements ListaContatosContract.Presenter {
 
-    ContatoRepository contatoRepository;
+    private ContatoRepository contatoRepository;
 
     @Inject
     public ListaContatosPresenter(ContatoRepository contatoRepository) {
@@ -38,5 +38,15 @@ public class ListaContatosPresenter implements ListaContatosContract.Presenter {
     @Override
     public void closeRepository() {
         contatoRepository.closeLocalRepository();
+    }
+
+    @Override
+    public void addContato(Contato contato) {
+        contatoRepository.add(contato);
+    }
+
+    @Override
+    public void cleanDB() {
+        contatoRepository.cleanDB();
     }
 }

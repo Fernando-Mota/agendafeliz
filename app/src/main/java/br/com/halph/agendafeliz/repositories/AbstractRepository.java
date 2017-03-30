@@ -17,14 +17,14 @@ public abstract class AbstractRepository<T extends RealmObject, ID> implements R
     @Override
     public void add(T t) {
         realm.beginTransaction();
-        realm.insertOrUpdate(t);
+        realm.copyToRealmOrUpdate(t);
         realm.commitTransaction();
     }
 
     @Override
     public void update(T t) {
         realm.beginTransaction();
-        realm.insertOrUpdate(t);
+        realm.copyToRealmOrUpdate(t);
         realm.commitTransaction();
     }
 
