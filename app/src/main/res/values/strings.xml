@@ -2,4 +2,8 @@
     <string name="app_name">Agenda Feliz</string>
 
     <string name="cloud_context">/contatos</string>
+
+    <string name="dashboard_title">Agenda Feliz</string>
+    <string name="lista_contato_title">Contatos</string>
+    <string name="form_contato_add_title">Novo Contato</string>
 </resources>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
+    android:background="@color/colorRecyclerBackground"
+    android:animateLayoutChanges="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,19 +20,12 @@
             android:gravity="center"
             android:layout_height="match_parent">
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/adiciona_contato"
                 android:src="@mipmap/add_contact"
                 android:layout_width="150dp"
                 android:scaleType="fitXY"
                 android:layout_height="150dp" />
-            <ImageButton
-                android:src="@mipmap/add"
-                android:scaleType="fitXY"
-                android:layout_width="150dp"
-                android:layout_height="150dp" />
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -37,19 +34,12 @@
             android:gravity="center"
             android:layout_height="match_parent">
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/adiciona_endereco"
                 android:src="@mipmap/add_endereco"
                 android:layout_width="150dp"
                 android:scaleType="fitXY"
                 android:layout_height="150dp" />
-            <ImageButton
-                android:src="@mipmap/add"
-                android:scaleType="fitXY"
-                android:layout_width="150dp"
-                android:layout_height="150dp" />
-
-
         </LinearLayout>
 
 

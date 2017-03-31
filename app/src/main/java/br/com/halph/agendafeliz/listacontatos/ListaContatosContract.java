@@ -1,5 +1,7 @@
 package br.com.halph.agendafeliz.listacontatos;
 
+import android.view.View;
+
 import java.util.List;
 
 import br.com.halph.agendafeliz.infra.BasePresenter;
@@ -27,7 +29,7 @@ public interface ListaContatosContract {
 
     public interface View extends BaseView<Presenter> {
 
-        public void adicionaContatoClick();
+        public void adicionaContatoClick(android.view.View view);
 
         public void contatoVisualizaClick();
 

@@ -65,4 +65,8 @@ public class ListaContatoAdapter extends RecyclerView.Adapter<ListaContatoAdapte
 
         }
     }
+
+    public Contato getContatoByPosition(int position) {
+        return contatos.get(position);
+    }
 }

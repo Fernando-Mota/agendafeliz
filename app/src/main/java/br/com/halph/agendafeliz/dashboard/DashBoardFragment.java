@@ -12,9 +12,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+
+import com.transitionseverywhere.Transition;
 
 import br.com.halph.agendafeliz.R;
+import br.com.halph.agendafeliz.UpdateActionBarTitleListener;
 import br.com.halph.agendafeliz.dashboard.DashBoardContract;
 import br.com.halph.agendafeliz.dashboard.DashBoardPresenter;
 import br.com.halph.agendafeliz.listacontatos.ListaContatosFragment;
@@ -27,7 +32,7 @@ public class DashBoardFragment extends Fragment implements DashBoardContract.Vie
 
     DashBoardPresenter presenter;
 
-    ImageButton imageButton;
+    ImageView imageButton;
 
     Context context;
 
@@ -36,38 +41,31 @@ public class DashBoardFragment extends Fragment implements DashBoardContract.Vie
 
         super.onAttach(context);
 
-        context = context;
+        this.context = context;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.dash_board_fragment, container, false);
-
-        imageButton = (ImageButton) view.findViewById(R.id.adiciona_contato);
-
+        imageButton = (ImageView) view.findViewById(R.id.adiciona_contato);
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 abrirListaContato(v);
             }
         });
-
-
-        // Inflate the layout for this fragment
         return view;
-
-
-
     }
 
     @Override
     public void abrirListaContato(View view) {
+        view.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.anim_click));
         Fragment newFragment = new ListaContatosFragment();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.frag_fade_in, R.anim.frag_fade_out, R.anim.frag_fade_in, R.anim.frag_fade_out);
         transaction.replace(R.id.container, newFragment);
-        transaction.addToBackStack(null);
+        transaction.addToBackStack("dash_board_to_lista_contato");
         transaction.commit();
     }
 
@@ -78,5 +76,11 @@ public class DashBoardFragment extends Fragment implements DashBoardContract.Vie
 
     public void setPresenter(DashBoardContract.Presenter presenter) {
         this.presenter = (DashBoardPresenter) presenter;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((UpdateActionBarTitleListener) context).updateActionbarTitle(getString(R.string.dashboard_title));
     }
 }

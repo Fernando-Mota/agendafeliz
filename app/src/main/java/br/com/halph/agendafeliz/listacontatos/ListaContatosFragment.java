@@ -2,6 +2,7 @@ package br.com.halph.agendafeliz.listacontatos;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -21,9 +23,11 @@ import javax.inject.Inject;
 
 import br.com.halph.agendafeliz.MainActivityContainer;
 import br.com.halph.agendafeliz.R;
+import br.com.halph.agendafeliz.UpdateActionBarTitleListener;
 import br.com.halph.agendafeliz.contatos.data.Contato;
 import br.com.halph.agendafeliz.formulariocontatos.FormularioContatoFragment;
 import br.com.halph.agendafeliz.repositories.Repository;
+import br.com.halph.agendafeliz.util.SwipeableRecyclerViewTouchListener;
 import io.realm.Realm;
 
 /**
@@ -48,22 +52,23 @@ public class ListaContatosFragment extends Fragment implements ListaContatosCont
 
         View view = inflater.inflate(R.layout.lista_contato_fragment, container, false);
 
+        ((MainActivityContainer) getActivity()).setTitle("Lista de Contatos");
+
         recyclerView = (RecyclerView) view.findViewById(R.id.lista_contatos_recycler_view);
 
         List<Contato> contatos = listaContatosPresenter.lista();
 
-        Log.d("QUANTIDADE_CONTATOS", "onCreateView: Contatos count " + contatos.size());
+        ListaContatoAdapter listaContatoAdapter = new ListaContatoAdapter(contatos);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-
-        recyclerView.setAdapter(new ListaContatoAdapter(contatos));
+        recyclerView.setAdapter(listaContatoAdapter);
 
         botaoAdicionaContato = (FloatingActionButton) view.findViewById(R.id.adiciona_contatos);
 
         botaoAdicionaContato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adicionaContatoClick();
+                adicionaContatoClick(v);
             }
         });
 
@@ -73,21 +78,20 @@ public class ListaContatosFragment extends Fragment implements ListaContatosCont
 
     @Override
     public void onAttach(Context context) {
-
         super.onAttach(context);
-
-        context = context;
-
+        this.context = context;
         MainActivityContainer.getContatoComponent().inject(this);
-
     }
 
+
     @Override
-    public void adicionaContatoClick() {
+    public void adicionaContatoClick(View view) {
+        view.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.anim_click));
         Fragment newFragment = new FormularioContatoFragment();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.frag_fade_in, R.anim.frag_fade_out, R.anim.frag_fade_in, R.anim.frag_fade_out);
         transaction.replace(R.id.container, newFragment);
-        transaction.addToBackStack(null);
+        transaction.addToBackStack("lista_contato_para_form_contato");
         transaction.commit();
     }
 
@@ -99,6 +103,7 @@ public class ListaContatosFragment extends Fragment implements ListaContatosCont
     @Override
     public void onResume() {
         super.onResume();
+        ((UpdateActionBarTitleListener) context).updateActionbarTitle(getString(R.string.lista_contato_title));
     }
 
     @Override

@@ -8,7 +8,7 @@ import br.com.halph.agendafeliz.R;
 import br.com.halph.agendafeliz.di.contato.ContatoComponent;
 import br.com.halph.agendafeliz.di.contato.DaggerContatoComponent;
 
-public class MainActivityContainer extends AppCompatActivity {
+public class MainActivityContainer extends AppCompatActivity implements UpdateActionBarTitleListener {
 
     private static ContatoComponent contatoComponent;
 
@@ -26,7 +26,16 @@ public class MainActivityContainer extends AppCompatActivity {
                     .commit();
     }
 
+    public void setActionTitle(String title) {
+        getSupportActionBar().setTitle(title);
+    }
+
     public static ContatoComponent getContatoComponent() {
         return contatoComponent;
+    }
+
+    @Override
+    public void updateActionbarTitle(String title) {
+        setActionTitle(title);
     }
 }

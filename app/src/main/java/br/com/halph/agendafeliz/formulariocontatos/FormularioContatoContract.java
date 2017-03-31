@@ -1,5 +1,7 @@
 package br.com.halph.agendafeliz.formulariocontatos;
 
+import android.view.View;
+
 import br.com.halph.agendafeliz.infra.BasePresenter;
 import br.com.halph.agendafeliz.infra.BaseView;
 import br.com.halph.agendafeliz.contatos.data.Contato;
@@ -12,7 +14,7 @@ public interface FormularioContatoContract {
 
     public interface View extends BaseView<Presenter> {
 
-        public void gravaContatoClick();
+        public void gravaContatoClick(android.view.View view);
 
         public void retornaParaLista();
 
