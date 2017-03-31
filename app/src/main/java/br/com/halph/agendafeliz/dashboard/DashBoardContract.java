@@ -10,10 +10,7 @@ import br.com.halph.agendafeliz.infra.BaseView;
 public interface DashBoardContract {
 
     public interface Presenter extends BasePresenter {
-
-        void abrirListaContato();
-
-        void abrirListaEnderecos();
+        //Aqui entrarão os métodos para pegar as quantidades de novidades nos itens do dashboard
     }
 
     public interface View extends BaseView<Presenter> {

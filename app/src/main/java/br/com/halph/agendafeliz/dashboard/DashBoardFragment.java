@@ -1,27 +1,18 @@
 package br.com.halph.agendafeliz.dashboard;
 
 
-import android.app.Activity;
 import android.content.Context;
-import android.media.Image;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-
-import com.transitionseverywhere.Transition;
 
 import br.com.halph.agendafeliz.R;
 import br.com.halph.agendafeliz.UpdateActionBarTitleListener;
-import br.com.halph.agendafeliz.dashboard.DashBoardContract;
-import br.com.halph.agendafeliz.dashboard.DashBoardPresenter;
 import br.com.halph.agendafeliz.listacontatos.ListaContatosFragment;
 
 /**
@@ -29,8 +20,6 @@ import br.com.halph.agendafeliz.listacontatos.ListaContatosFragment;
  */
 
 public class DashBoardFragment extends Fragment implements DashBoardContract.View {
-
-    DashBoardPresenter presenter;
 
     ImageView imageButton;
 
@@ -72,10 +61,6 @@ public class DashBoardFragment extends Fragment implements DashBoardContract.Vie
     @Override
     public void abrirListaEnderecos() {
 
-    }
-
-    public void setPresenter(DashBoardContract.Presenter presenter) {
-        this.presenter = (DashBoardPresenter) presenter;
     }
 
     @Override
