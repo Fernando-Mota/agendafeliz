@@ -2,6 +2,12 @@ package br.com.halph.agendafeliz.dashboard;
 
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.RippleDrawable;
+import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -44,6 +50,7 @@ public class DashBoardFragment extends Fragment implements DashBoardContract.Vie
                 abrirListaContato(v);
             }
         });
+
         return view;
     }
 
@@ -67,5 +74,11 @@ public class DashBoardFragment extends Fragment implements DashBoardContract.Vie
     public void onResume() {
         super.onResume();
         ((UpdateActionBarTitleListener) context).updateActionbarTitle(getString(R.string.dashboard_title));
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        this.context = null;
     }
 }

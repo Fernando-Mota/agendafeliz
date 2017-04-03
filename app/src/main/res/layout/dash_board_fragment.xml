@@ -20,12 +20,21 @@
             android:gravity="center"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/adiciona_contato"
-                android:src="@mipmap/add_contact"
-                android:layout_width="150dp"
-                android:scaleType="fitXY"
-                android:layout_height="150dp" />
+            <com.andexert.library.RippleView
+                android:id="@+id/dashboard_ripple_contatos"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_toLeftOf="@+id/more2"
+                android:layout_margin="5dp"
+                rv_centered="true">
+
+                <ImageView
+                    android:id="@+id/adiciona_contato"
+                    android:src="@mipmap/add_contact"
+                    android:layout_width="150dp"
+                    android:scaleType="fitXY"
+                    android:layout_height="150dp" />
+            </com.andexert.library.RippleView>
         </LinearLayout>
 
         <LinearLayout
@@ -34,12 +43,21 @@
             android:gravity="center"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/adiciona_endereco"
-                android:src="@mipmap/add_endereco"
-                android:layout_width="150dp"
-                android:scaleType="fitXY"
-                android:layout_height="150dp" />
+
+            <com.andexert.library.RippleView
+                android:id="@+id/dashboard_ripple_enderecos"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_toLeftOf="@+id/more2"
+                android:layout_margin="5dp"
+                rv_centered="true">
+                <ImageView
+                    android:id="@+id/adiciona_endereco"
+                    android:src="@mipmap/add_endereco"
+                    android:layout_width="150dp"
+                    android:scaleType="fitXY"
+                    android:layout_height="150dp" />
+            </com.andexert.library.RippleView>
         </LinearLayout>
 
 

@@ -109,6 +109,7 @@ public class ListaContatosFragment extends Fragment implements ListaContatosCont
     @Override
     public void onDetach() {
         super.onDetach();
+        this.context = null;
         listaContatosPresenter.closeRepository();
         Log.d("CLOSE_REALM", "Realm fechado!");
     }

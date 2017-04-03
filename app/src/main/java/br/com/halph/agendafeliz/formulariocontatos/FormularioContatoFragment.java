@@ -5,11 +5,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import java.util.UUID;
 
@@ -70,6 +72,16 @@ public class FormularioContatoFragment extends Fragment implements FormularioCon
         MainActivityContainer.getContatoComponent().inject(this);
 
 
+        LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.form_contato_holder);
+
+        View view1 = LayoutInflater.from(getActivity()).inflate(R.layout.item_telefone, null);
+        linearLayout.addView(view1);
+
+        ViewGroup parent = (ViewGroup) view1.getParent();
+
+        Log.d("FORM_HOLDER_ID", "ID_CARD_VIEW: " + (parent.getId() == R.id.form_contato_holder));
+
+
 
         return view;
     }
@@ -93,5 +105,11 @@ public class FormularioContatoFragment extends Fragment implements FormularioCon
 
     public void setPresenter(FormularioContatoContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        this.context = null;
     }
 }

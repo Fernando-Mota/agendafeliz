@@ -39,6 +39,8 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:2.9"
     provided 'javax.annotation:jsr250-api:1.0'
 
+    compile project(':ripple')
+
     compile "com.andkulikov:transitionseverywhere:1.7.0"
 
     compile 'com.jakewharton:butterknife:8.5.1'
